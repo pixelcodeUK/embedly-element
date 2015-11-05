@@ -1,0 +1,122 @@
+<link rel="import" href="../polymer/polymer.html">
+<!--
+An element for embedding a website using the Embed.ly service
+
+Example:
+
+    <embedly-element url="https://twitter.com/jack/status/20" link-text="Tweet"></embedly-element>
+
+@demo
+-->
+<dom-module id="embedly-element">
+
+  <style>
+    :host {
+      display: block;
+      box-sizing: border-box;
+    }
+  </style>
+
+  <template>
+    <a id="anchor"
+        class="embedly-card"
+        href$="[[url]]"
+        data-card-controls$="[[_boolToInt(showControls)]]"
+        data-card-chrome$="[[_boolToInt(showChrome)]]"
+        data-card-theme$="[[theme]]"
+        data-card-align$="[[cardAlign]]">[[linkText]]</a>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+
+    is : 'embedly-element',
+
+    properties : {
+      /**
+       * The URL of the website to embed
+       */
+      url : {
+        type : String
+      },
+
+      /**
+       * The backup text for the link to the URL
+       */
+      linkText : {
+        type : String
+      },
+
+      /**
+       * Show controls on the outside of the iframe to share this content
+       * on other social media sites
+       */
+      showControls : {
+        type : Boolean,
+        value : false
+      },
+
+      /**
+       * Show chrome on the outside of the iframe
+       */
+      showChrome : {
+        type : Boolean,
+        value : false
+      },
+
+      /**
+       * Colour theme for the embed - "light" or "dark"
+       */
+      theme : {
+        type : String,
+        value : 'light'
+      },
+
+      /**
+       * Width for the embedded content in pixels
+       * If you leave this, is will be "responsive"
+       */
+      width : {
+        type : Number,
+        value : -1,
+        observer : '_widthObserver'
+      },
+
+      /**
+       * Alignment of the embedded content "center", "left" or "right"
+       */
+      cardAlign : {
+        type : String,
+        value : 'center'
+      },
+    },
+
+    /**
+     * If the width is unspecified, the attribute needs to be removed for the
+     * content to be responsive
+     *
+     * @private
+     * @param {string} current width.
+     */
+    _widthObserver : function(width) {
+      if(this.width < 0){
+        Polymer.dom(this.$['anchor']).removeAttribute('data-card-width');
+      }else{
+        Polymer.dom(this.$['anchor']).setAttribute('data-card-width',this.width);
+      }
+    },
+
+    /**
+     * Convert booleans to integers for the data attributes
+     *
+     * @private
+     * @param {bool} boolean to convert.
+     * @return {int} 1 if true, 0 if false.
+     */
+    _boolToInt : function(bool) {
+      return (bool ? 1 : 0);
+    }
+
+  });
+</script>

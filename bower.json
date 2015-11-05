@@ -1,0 +1,30 @@
+{
+  "name": "embedly-element",
+  "version": "0.0.1",
+  "authors": [
+    "Pixelcode"
+  ],
+  "description": "An element allowing embedding websites using the Embed.ly service.",
+  "keywords": [
+    "embedly",
+    "embed.ly",
+    "web-component",
+    "web-components",
+    "polymer"
+  ],
+  "main": "embedly-element.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/pixelcodeuk/embedly-element/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  }
+}
