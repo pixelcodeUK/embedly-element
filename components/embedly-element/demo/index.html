@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>embedly-element Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+    <link rel="import" href="../embedly-element.html">
+  </head>
+  <body>
+
+    <p>An example of <code>&lt;embedly-element&gt;</code> embedding a tweet:</p>
+
+    <embedly-element url="https://twitter.com/jack/status/20" link-text="Tweet"></embedly-element>
+
+    <p>Using the dark theme:</p>
+
+    <embedly-element url="https://twitter.com/jack/status/20" link-text="Tweet" theme="dark" card-align="right"></embedly-element>
+
+    <p>Setting a width for the card:</p>
+
+    <embedly-element url="https://twitter.com/jack/status/20" link-text="Tweet" width="320"></embedly-element>
+
+    <p>Show extra sharing controls:</p>
+
+    <embedly-element url="https://twitter.com/jack/status/20" link-text="Tweet" show-controls></embedly-element>
+
+    <p>Show extra chrome on card:</p>
+
+    <embedly-element url="https://twitter.com/jack/status/20" link-text="Tweet" show-chrome></embedly-element>
+
+
+  </body>
+</html>
